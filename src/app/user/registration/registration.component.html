@@ -1,0 +1,38 @@
+    <div class="col-md-6 container">
+        <form [formGroup]="service.formModel" autocomplete="off" (submit)="onSubmit()">
+            <div class="form-group required">
+                <label>Nombre:</label>
+                <input type="text" class="form-control" formControlName="Nombre" autocomplete="off">
+                <label class="text-danger" *ngIf="service.formModel.get('Nombre').touched && service.formModel.get('Nombre').errors?.required">Este campo es requerido</label>
+            </div>
+            <div class="form-group required">
+                <label>Apellidos:</label>
+                <input type="text" class="form-control" formControlName="Apellidos" autocomplete="off">
+                <label class="text-danger" *ngIf="service.formModel.get('Apellidos').touched && service.formModel.get('Apellidos').errors?.required">Este campo es requerido</label>
+            </div>
+            <div class="form-group required">
+                <label>Correo:</label>
+                <input class="form-control" formControlName="Correo" autocomplete="off">
+                <label class="text-danger" *ngIf="service.formModel.get('Correo').touched && service.formModel.get('Correo').errors?.email">Debe ser tipo email</label>
+            </div>
+            <div formGroupName="Contrasenas">
+                <div class="form-group required">
+                    <label>Contraseña:</label>
+                    <input type="password" class="form-control" formControlName="Contrasena" autocomplete="off">
+                    <label class="text-danger" *ngIf="service.formModel.get('Contrasenas.Contrasena').touched && service.formModel.get('Contrasenas.Contrasena').errors?.required">Este campo es requerido</label>
+                    <label class="text-danger" *ngIf="service.formModel.get('Contrasenas.Contrasena').touched && service.formModel.get('Contrasenas.Contrasena').errors?.minlength">Debe de tener mas de 6 caracteres</label>
+                </div>
+                <div class="form-group required">
+                    <label>Confirmar Contraseña:</label>
+                    <input type="password" class="form-control" formControlName="ConfirmarContrasena">
+                    <label class="text-danger" *ngIf="service.formModel.get('Contrasenas.ConfirmarContrasena').touched && service.formModel.get('Contrasenas.ConfirmarContrasena').errors?.required">Este campo es requerido</label>
+                    <label class="text-danger" *ngIf="service.formModel.get('Contrasenas.ConfirmarContrasena').touched && service.formModel.get('Contrasenas.ConfirmarContrasena').errors?.passwordMismatch">Las contraseñas no coinciden</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-8 offset-md-2">
+                    <button type="submit" class="btn btn-lg btn-primary" [disabled]="!service.formModel.valid">Registrar</button>
+                </div>
+            </div>
+        </form>
+    </div>

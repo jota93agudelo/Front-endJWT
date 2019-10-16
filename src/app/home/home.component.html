@@ -1,0 +1,18 @@
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand text-white">JWT Sistema Autenticación</a>
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a routerLink="/adminpanel" class="nav-link">Admin Panel</a>
+        </li>
+    </ul>
+    <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Salir</button>
+</nav>
+
+
+<div class="card md-5" style="width:18rem; margin-left: 3rem; margin-top: 3rem" *ngIf="usuario">
+    <ul class="list-group">
+        <li class="list-group-item"><strong>Usuario: </strong>{{usuario.userName}}</li>
+        <li class="list-group-item"><strong>Nombre: </strong>{{usuario.nombre}}</li>
+        <li class="list-group-item"><strong>Correo: </strong>{{usuario.correo}}</li>
+    </ul>
+</div>

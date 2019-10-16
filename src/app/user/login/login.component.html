@@ -1,0 +1,17 @@
+<form #form='ngForm' class="col-md-5 container" autocomplete="off" (submit)="onSubmit(form)">
+    <div class="form-goup">
+        <label>Usuario:</label>
+        <input class="form-control" #Correo="ngModel" name="Correo" [(ngModel)]="formModel.Correo" required>
+    </div>
+    <br>
+    <div class="form-goup">
+        <label>Contraseña:</label>
+        <input type="password" class="form-control" #Correo="ngModel" name="Contrasena" [(ngModel)]="formModel.Contrasena" required>
+    </div>
+    <hr>
+    <div class="form-row text-center">
+        <div class="form-group col-md-8 offset-md-2">
+            <button type="submit" class="btn btn-lg btn-primary" [disabled]="form.invalid">Login</button>
+        </div>
+    </div>
+</form>
